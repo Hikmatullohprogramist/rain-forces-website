@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss"
-
-const config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -9,7 +8,6 @@ const config = {
     "./src/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -26,12 +24,30 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#00A19A", // Teal from "rain" in the logo
+          50: "#E6F7F7",
+          100: "#CCF0EF",
+          200: "#99E1DF",
+          300: "#66D2CF",
+          400: "#33C3BF",
+          500: "#00A19A",
+          600: "#00817B",
+          700: "#00615C",
+          800: "#00403E",
+          900: "#00201F",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#FF8C00", // Orange from "Forces" in the logo
+          50: "#FFF2E6",
+          100: "#FFE5CC",
+          200: "#FFCC99",
+          300: "#FFB266",
+          400: "#FF9933",
+          500: "#FF8C00",
+          600: "#CC7000",
+          700: "#995400",
+          800: "#663800",
+          900: "#331C00",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -53,30 +69,6 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        blue: {
-          50: "#f0f5ff",
-          100: "#e0ebff",
-          200: "#c7d7fe",
-          300: "#a4bcfd",
-          400: "#8098fb",
-          500: "#6371f6",
-          600: "#4f4fe9",
-          700: "#3e3fd0",
-          800: "#1e2fa8",
-          900: "#0f2875",
-        },
-        gray: {
-          50: "#f9fafb",
-          100: "#f3f4f6",
-          200: "#e5e7eb",
-          300: "#d1d5db",
-          400: "#9ca3af",
-          500: "#6b7280",
-          600: "#4b5563",
-          700: "#374151",
-          800: "#1f2937",
-          900: "#111827",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -85,12 +77,12 @@ const config = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
+          from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          to: { height: 0 },
         },
       },
       animation: {
@@ -100,6 +92,4 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
-
-export default config
+}

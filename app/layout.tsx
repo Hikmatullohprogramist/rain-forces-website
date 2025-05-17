@@ -1,17 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Lexend } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
-import { ThemeProvider } from "@/components/theme-provider"
 
-const lexend = Lexend({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Rain Forest | Building Restoration & Rehabilitation",
+  title: "RainForces - Professional Restoration Services",
   description:
-    "Rain Forest specializes in building restoration and rehabilitation services for residential and commercial buildings in Ontario since 2007.",
+    "RainForces provides professional water damage, fire damage, and mold remediation services. 24/7 emergency response available.",
     generator: 'v0.dev'
 }
 
@@ -21,14 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={lexend.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </ThemeProvider>
-      </body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
