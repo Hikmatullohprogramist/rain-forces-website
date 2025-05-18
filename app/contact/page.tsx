@@ -1,453 +1,229 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import PageLayout from "@/components/layout/page-layout"
+import PageBanner from "@/components/layout/page-banner"
+import Breadcrumbs from "@/components/layout/breadcrumbs"
+import ContactForm from "@/components/contact-form"
 import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import { motion } from "framer-motion"
-import AnimatedSection from "@/components/animated-section"
-import TextReveal from "@/components/text-reveal"
-import AnimatedIcon from "@/components/animated-icon"
-import ParticleBackground from "@/components/particle-background"
-import AnimatedBackground from "@/components/animated-background"
-import HighlightBadge from "@/components/highlight-badge"
-import InteractiveCard from "@/components/interactive-card"
-import GoogleMap from "@/components/google-map"
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  })
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
-    setPrefersReducedMotion(mediaQuery.matches)
-
-    const handleChange = () => setPrefersReducedMotion(mediaQuery.matches)
-    mediaQuery.addEventListener("change", handleChange)
-    return () => mediaQuery.removeEventListener("change", handleChange)
-  }, [])
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      })
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false)
-      }, 5000)
-    }, 1500)
-  }
+  const contactInfo = [
+    {
+      icon: <MapPin className="h-6 w-6 text-primary" />,
+      title: "Our Location",
+      details: ["123 Restoration Ave, Suite 100", "Toronto, ON M5V 2K6"],
+    },
+    {
+      icon: <Phone className="h-6 w-6 text-primary" />,
+      title: "Phone Numbers",
+      details: ["Main: (416) 555-0000", "Emergency: 1-800-555-0000"],
+    },
+    {
+      icon: <Mail className="h-6 w-6 text-primary" />,
+      title: "Email Addresses",
+      details: ["info@rainforces.com", "support@rainforces.com"],
+    },
+    {
+      icon: <Clock className="h-6 w-6 text-primary" />,
+      title: "Business Hours",
+      details: ["Mon-Fri: 8:00 AM - 6:00 PM", "Sat: 9:00 AM - 2:00 PM", "24/7 Emergency Service"],
+    },
+  ]
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-blue-900 text-white overflow-hidden">
-        <AnimatedBackground>
-          <ParticleBackground
-            color="rgba(255, 255, 255, 0.5)"
-            particleCount={40}
-            className="z-0"
-            minSize={1}
-            maxSize={3}
-          />
-          <div className="container mx-auto px-4 relative z-10">
-            <AnimatedSection>
-              <HighlightBadge text="GET IN TOUCH" className="mb-4" />
-              <TextReveal text="Contact Us" element="h1" className="text-4xl md:text-5xl font-bold mb-6" />
-              <TextReveal
-                text="Get in touch with our team for all your building restoration and rehabilitation needs"
-                element="p"
-                className="text-xl md:text-2xl text-blue-100"
-                delay={0.3}
-              />
-            </AnimatedSection>
-          </div>
-        </AnimatedBackground>
-      </section>
+    <PageLayout>
+      <PageBanner
+        title="Contact Us"
+        subtitle="Get in touch with our team for restoration services, quotes, or general inquiries."
+        backgroundImage="/placeholder.svg?height=600&width=1200"
+      />
 
-      {/* Contact Information and Form */}
-      <section className="py-20 bg-white">
+      <Breadcrumbs items={[{ label: "Contact" }]} />
+
+      {/* Contact Information */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Contact Information */}
-            <AnimatedSection direction="left" className="lg:col-span-1">
-              <div>
-                <TextReveal
-                  text="Get In Touch"
-                  element="h2"
-                  className="text-2xl md:text-3xl font-bold mb-6 text-gray-900"
-                />
-                <p className="text-lg text-gray-700 mb-8">
-                  Have questions about our services or want to request a quote? Contact us using the information below
-                  or fill out the form.
-                </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We're here to help with all your restoration needs. Contact us today for a free consultation or emergency
+              services.
+            </p>
+          </motion.div>
 
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <AnimatedIcon
-                      icon={<MapPin className="h-6 w-6" />}
-                      size="md"
-                      className="mr-4 flex-shrink-0 mt-1"
-                      hoverEffect="bounce"
-                    />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                      <p className="text-gray-700">14-1085 Bellamy Rd N Toronto, Ontario, M1H 3C7</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <AnimatedIcon
-                      icon={<Phone className="h-6 w-6" />}
-                      size="md"
-                      className="mr-4 flex-shrink-0 mt-1"
-                      hoverEffect="shake"
-                    />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                      <p className="text-gray-700">(123) 456-7890</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <AnimatedIcon
-                      icon={<Mail className="h-6 w-6" />}
-                      size="md"
-                      className="mr-4 flex-shrink-0 mt-1"
-                      hoverEffect="pulse"
-                    />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                      <p className="text-gray-700">info@rainforces.com</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <AnimatedIcon
-                      icon={<Clock className="h-6 w-6" />}
-                      size="md"
-                      className="mr-4 flex-shrink-0 mt-1"
-                      hoverEffect="rotate"
-                    />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Business Hours</h3>
-                      <p className="text-gray-700">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                      <p className="text-gray-700">Saturday: 9:00 AM - 2:00 PM</p>
-                      <p className="text-gray-700">Sunday: Closed</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-12">
-                  <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
-                  <div className="flex space-x-4">
-                    <motion.a
-                      href="#"
-                      className="bg-gray-200 hover:bg-blue-900 hover:text-white text-gray-700 p-3 rounded-full transition-colors"
-                      whileHover={{ scale: 1.1, backgroundColor: "#0f2875", color: "#ffffff" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {contactInfo.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full border-none shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-center text-center">
+                    <div className="mb-4 p-3 bg-primary-50 rounded-full">{item.icon}</div>
+                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                    {item.details.map((detail, idx) => (
+                      <p
+                        key={idx}
+                        className={`text-gray-600 ${idx === item.details.length - 1 && index === 3 ? "text-secondary font-medium" : ""}`}
                       >
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                      </svg>
-                    </motion.a>
-                    <motion.a
-                      href="#"
-                      className="bg-gray-200 hover:bg-blue-900 hover:text-white text-gray-700 p-3 rounded-full transition-colors"
-                      whileHover={{ scale: 1.1, backgroundColor: "#0f2875", color: "#ffffff" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                      </svg>
-                    </motion.a>
-                    <motion.a
-                      href="#"
-                      className="bg-gray-200 hover:bg-blue-900 hover:text-white text-gray-700 p-3 rounded-full transition-colors"
-                      whileHover={{ scale: 1.1, backgroundColor: "#0f2875", color: "#ffffff" }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                      </svg>
-                    </motion.a>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Contact Form */}
-            <AnimatedSection direction="right" delay={0.3} className="lg:col-span-2">
-              <InteractiveCard tiltEffect={false} hoverScale={1.01}>
-                <Card className="border-none shadow-lg">
-                  <CardContent className="p-8">
-                    <h2 className="text-2xl font-bold mb-6 text-gray-900">Send Us a Message</h2>
-
-                    {isSubmitted ? (
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="bg-green-50 border border-green-200 text-green-700 rounded-lg p-6 text-center"
-                      >
-                        <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
-                        <p>Your message has been sent successfully. We'll get back to you as soon as possible.</p>
-                      </motion.div>
-                    ) : (
-                      <form onSubmit={handleSubmit}>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                          <div className="space-y-2">
-                            <Label htmlFor="name">Full Name</Label>
-                            <Input
-                              id="name"
-                              name="name"
-                              value={formData.name}
-                              onChange={handleChange}
-                              placeholder="John Doe"
-                              required
-                              className="focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
-                            />
-                          </div>
-
-                          <div className="space-y-2">
-                            <Label htmlFor="email">Email Address</Label>
-                            <Input
-                              id="email"
-                              name="email"
-                              type="email"
-                              value={formData.email}
-                              onChange={handleChange}
-                              placeholder="john@example.com"
-                              required
-                              className="focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
-                            />
-                          </div>
-
-                          <div className="space-y-2">
-                            <Label htmlFor="phone">Phone Number</Label>
-                            <Input
-                              id="phone"
-                              name="phone"
-                              value={formData.phone}
-                              onChange={handleChange}
-                              placeholder="(123) 456-7890"
-                              className="focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
-                            />
-                          </div>
-
-                          <div className="space-y-2">
-                            <Label htmlFor="subject">Subject</Label>
-                            <Input
-                              id="subject"
-                              name="subject"
-                              value={formData.subject}
-                              onChange={handleChange}
-                              placeholder="How can we help you?"
-                              required
-                              className="focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="space-y-2 mb-6">
-                          <Label htmlFor="message">Message</Label>
-                          <Textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            placeholder="Please provide details about your project or inquiry..."
-                            rows={6}
-                            required
-                            className="focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
-                          />
-                        </div>
-
-                        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                          <Button
-                            type="submit"
-                            className="bg-blue-900 hover:bg-blue-800 text-white rounded-full px-8 w-full md:w-auto"
-                            disabled={isSubmitting}
-                          >
-                            {isSubmitting ? "Sending..." : "Send Message"}
-                          </Button>
-                        </motion.div>
-                      </form>
-                    )}
+                        {detail}
+                      </p>
+                    ))}
                   </CardContent>
                 </Card>
-              </InteractiveCard>
-            </AnimatedSection>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Map */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="h-[400px] bg-gray-200 rounded-lg overflow-hidden shadow-lg"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.6894024288837!2d-79.38927548450166!3d43.64280067912161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d68bf33a9b%3A0x15edd8c4de1c7581!2sCN%20Tower!5e0!3m2!1sen!2sca!4v1653012345678!5m2!1sen!2sca"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </motion.div>
+
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Card className="border-none shadow-lg overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="bg-gradient-to-r from-primary to-primary-700 p-6 text-white">
+                    <h3 className="text-2xl font-bold">Send Us a Message</h3>
+                    <p className="text-white/80">Fill out the form below and we'll get back to you shortly</p>
+                  </div>
+                  <div className="p-6">
+                    <ContactForm />
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-12 bg-gray-50 relative overflow-hidden">
-        <ParticleBackground color="rgba(15, 40, 117, 0.1)" particleCount={20} className="z-0" speed={0.2} />
-        <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection>
-            <div className="text-center mb-12">
-              <HighlightBadge text="FIND US" className="mb-4" />
-              <TextReveal
-                text="Our Location"
-                element="h2"
-                className="text-2xl md:text-3xl font-bold mb-4 text-gray-900"
-              />
-              <TextReveal
-                text="Visit our office in Toronto, Ontario"
-                className="text-lg text-gray-600 max-w-3xl mx-auto"
-                delay={0.3}
-              />
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.4}>
-            <InteractiveCard tiltEffect={false} hoverScale={1.01}>
-              <GoogleMap address="14-1085 Bellamy Rd N Toronto, Ontario, M1H 3C7" height="400px" zoom={15} />
-            </InteractiveCard>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      {/* Service Areas */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <HighlightBadge text="QUESTIONS" className="mb-4" />
-              <TextReveal
-                text="Frequently Asked Questions"
-                element="h2"
-                className="text-3xl md:text-4xl font-bold mb-4 text-gray-900"
-              />
-              <TextReveal
-                text="Find answers to common questions about our services"
-                className="text-xl text-gray-600 max-w-3xl mx-auto"
-                delay={0.3}
-              />
-            </div>
-          </AnimatedSection>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Service Areas</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We provide restoration services throughout Ontario and surrounding areas.
+            </p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
             {[
-              {
-                question: "What areas do you serve?",
-                answer:
-                  "We primarily serve the Greater Toronto Area, including Toronto, Scarborough, North York, Etobicoke, and surrounding areas.",
-              },
-              {
-                question: "Do you offer free estimates?",
-                answer: "Yes, we provide free estimates for all our services. Contact us to schedule a consultation.",
-              },
-              {
-                question: "How long does a typical project take?",
-                answer:
-                  "Project timelines vary depending on the scope and complexity. Small repairs may take a few days, while larger restoration projects can take several months.",
-              },
-              {
-                question: "Are you licensed and insured?",
-                answer:
-                  "Yes, RainForces is fully licensed and insured. We maintain all necessary certifications and insurance coverage for your peace of mind.",
-              },
-            ].map((faq, index) => (
-              <AnimatedSection key={index} delay={0.2 * (index + 1)}>
-                <InteractiveCard>
-                  <div className="border-b border-gray-200 pb-6">
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900">{faq.question}</h3>
-                    <p className="text-gray-700">{faq.answer}</p>
-                  </div>
-                </InteractiveCard>
-              </AnimatedSection>
+              "Toronto",
+              "Mississauga",
+              "Brampton",
+              "Hamilton",
+              "Oshawa",
+              "Vaughan",
+              "Markham",
+              "Richmond Hill",
+              "Oakville",
+              "Burlington",
+              "Pickering",
+              "Ajax",
+            ].map((city, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="p-4 bg-white rounded-lg shadow-md"
+              >
+                {city}
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Fixed UI issues */}
-      <section className="py-20 bg-blue-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-800"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
-          </AnimatedSection>
-          <AnimatedSection delay={0.3}>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Contact us today for a free consultation and quote. Let us help you bring your vision to life.
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Find answers to common questions about our restoration services.
             </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.5}>
-            <Button className="bg-white text-blue-900 hover:bg-gray-100 rounded-full px-8 py-6 text-lg">
-              (123) 456-7890
-            </Button>
-          </AnimatedSection>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                question: "How quickly can you respond to an emergency?",
+                answer:
+                  "We offer 24/7 emergency response and typically arrive on-site within 1-2 hours of your call, depending on your location.",
+              },
+              {
+                question: "Do you work with insurance companies?",
+                answer:
+                  "Yes, we work directly with all major insurance companies and can help you navigate the claims process for a smoother experience.",
+              },
+              {
+                question: "How long does the restoration process take?",
+                answer:
+                  "The timeline varies depending on the extent of the damage. Small projects may take a few days, while larger restoration projects can take several weeks.",
+              },
+              {
+                question: "Are your technicians certified?",
+                answer:
+                  "Yes, all our technicians are IICRC certified and undergo regular training to stay current with industry best practices and technologies.",
+              },
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <h3 className="text-xl font-bold mb-2">{faq.question}</h3>
+                <p className="text-gray-600">{faq.answer}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
-    </div>
+    </PageLayout>
   )
 }

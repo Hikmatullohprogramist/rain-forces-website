@@ -1,70 +1,72 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Droplet, Flame, Sprout, Wind, Shield, Home } from "lucide-react"
+import { useState } from "react"
 import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { assetImages } from "@/lib/image-utils"
+import ServiceCard from "@/components/service-card"
+import { Building, Hammer, Wrench, Droplet, Flame, WormIcon as Virus } from "lucide-react"
 
-const ServicesSection = () => {
+export default function ServicesSection() {
+  const [hoveredService, setHoveredService] = useState<string | null>(null)
+
   const services = [
     {
-      icon: <Droplet className="h-10 w-10 text-primary" />,
+      id: "construction",
+      title: "General Construction",
+      description:
+        "Full-service construction for new buildings and major renovations for commercial and residential clients.",
+      icon: <Building className="h-12 w-12 text-primary" />,
+      link: "/services/construction",
+      image: assetImages.services.construction,
+    },
+    {
+      id: "renovation",
+      title: "Renovation & Remodeling",
+      description: "Transform your space with our expert renovation and remodeling services for homes and businesses.",
+      icon: <Hammer className="h-12 w-12 text-primary" />,
+      link: "/services/renovation",
+      image: assetImages.services.renovation,
+    },
+    {
+      id: "restoration",
+      title: "Building Restoration",
+      description:
+        "Specialized restoration services for historic and aging buildings, preserving their character and integrity.",
+      icon: <Wrench className="h-12 w-12 text-primary" />,
+      link: "/services/restoration",
+      image: assetImages.services.restoration,
+    },
+    {
+      id: "water-damage",
       title: "Water Damage Restoration",
-      description:
-        "Fast response to water damage from floods, leaks, or storms. We extract water, dry your property, and restore damaged areas.",
+      description: "Fast response to water damage from floods, leaks, or storms with complete restoration services.",
+      icon: <Droplet className="h-12 w-12 text-primary" />,
       link: "/services/water-damage",
+      image: assetImages.services.waterDamage,
     },
     {
-      icon: <Flame className="h-10 w-10 text-secondary" />,
-      title: "Fire Damage Restoration",
-      description:
-        "Complete fire and smoke damage restoration services, from cleanup to reconstruction and odor removal.",
+      id: "fire-damage",
+      title: "Fire Damage Repair",
+      description: "Comprehensive fire and smoke damage restoration services, from cleanup to reconstruction.",
+      icon: <Flame className="h-12 w-12 text-primary" />,
       link: "/services/fire-damage",
+      image: assetImages.services.fireDamage,
     },
     {
-      icon: <Sprout className="h-10 w-10 text-primary" />,
+      id: "mold-remediation",
       title: "Mold Remediation",
       description:
         "Professional mold inspection, testing, and remediation to ensure your property is safe and healthy.",
+      icon: <Virus className="h-12 w-12 text-primary" />,
       link: "/services/mold-remediation",
-    },
-    {
-      icon: <Wind className="h-10 w-10 text-secondary" />,
-      title: "Storm Damage Repair",
-      description: "Comprehensive storm damage restoration for roofs, siding, windows, and structural repairs.",
-      link: "/services/storm-damage",
-    },
-    {
-      icon: <Shield className="h-10 w-10 text-primary" />,
-      title: "Biohazard Cleanup",
-      description: "Safe and discreet biohazard cleanup services with proper disposal and thorough sanitization.",
-      link: "/services/biohazard-cleanup",
-    },
-    {
-      icon: <Home className="h-10 w-10 text-secondary" />,
-      title: "Reconstruction Services",
-      description: "Full-service reconstruction to restore your property to its pre-loss condition or better.",
-      link: "/services/reconstruction",
+      image: assetImages.services.moldRemediation,
     },
   ]
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
-
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,54 +75,49 @@ const ServicesSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Restoration Services</h2>
+          <span className="text-primary font-semibold">OUR EXPERTISE</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Our Services</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We provide comprehensive restoration services to help you recover from water damage, fire damage, mold, and
-            more.
+            From new construction to restoration and disaster recovery, we provide comprehensive solutions for all your
+            property needs.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <motion.div key={index} variants={item} className="h-full">
-              <Card className="service-card border-none shadow-lg h-full flex flex-col">
-                <CardHeader>
-                  <div className="mb-4">{service.icon}</div>
-                  <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription className="text-gray-600 text-base">{service.description}</CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline" className="text-primary border-primary hover:bg-primary-50 w-full">
-                    Learn More
-                  </Button>
-                </CardFooter>
-              </Card>
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              onMouseEnter={() => setHoveredService(service.id)}
+              onMouseLeave={() => setHoveredService(null)}
+            >
+              <ServiceCard
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                link={service.link}
+                imageSrc={service.image}
+                isHovered={hoveredService === service.id}
+              />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
           className="text-center mt-12"
         >
-          <Button className="bg-secondary hover:bg-secondary-600 text-white px-8 py-6 text-lg">
-            View All Services
+          <Button asChild className="bg-primary hover:bg-primary-600 text-white rounded-full px-8">
+            <Link href="/services">View All Services</Link>
           </Button>
         </motion.div>
       </div>
     </section>
   )
 }
-
-export default ServicesSection
