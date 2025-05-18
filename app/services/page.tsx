@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/layout/breadcrumbs"
 import CTASection from "@/components/layout/cta-section"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Droplet, Flame, Sprout, Wind, Shield, Home, CheckCircle2 } from "lucide-react"
+import { Droplet, Sprout, Wind, Shield, Home, CheckCircle2 } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
@@ -15,35 +15,19 @@ export default function ServicesPage() {
   const services = [
     {
       icon: <Droplet className="h-12 w-12 text-primary" />,
-      title: "Water Damage Restoration",
+      title: "Water & Fire Damage Repair",
       description:
-        "Fast response to water damage from floods, leaks, or storms. We extract water, dry your property, and restore damaged areas.",
+        "Comprehensive restoration services for properties affected by water and fire damage, from emergency response to complete reconstruction.",
       features: [
         "24/7 Emergency Response",
         "Water Extraction & Removal",
+        "Fire & Smoke Damage Cleanup",
         "Structural Drying",
-        "Dehumidification",
-        "Mold Prevention",
-        "Content Restoration",
-      ],
-      image: "/placeholder.svg?height=600&width=800",
-      link: "/services/water-damage",
-    },
-    {
-      icon: <Flame className="h-12 w-12 text-secondary" />,
-      title: "Fire Damage Restoration",
-      description:
-        "Complete fire and smoke damage restoration services, from cleanup to reconstruction and odor removal.",
-      features: [
-        "Fire Damage Assessment",
-        "Smoke & Soot Removal",
         "Odor Elimination",
-        "Structural Repairs",
-        "Content Cleaning & Restoration",
-        "Reconstruction Services",
+        "Complete Reconstruction",
       ],
       image: "/placeholder.svg?height=600&width=800",
-      link: "/services/fire-damage",
+      link: "/services/damage-repair",
     },
     {
       icon: <Sprout className="h-12 w-12 text-primary" />,

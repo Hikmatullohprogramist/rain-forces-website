@@ -5,9 +5,9 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "RainForces - Construction & Restoration Services",
+  title: "RainForces - The Restoration Specialists",
   description:
-    "Professional construction, building rehabilitation, and specialized restoration services for residential and commercial properties.",
+    "Professional restoration, building rehabilitation, and specialized construction services for residential and commercial properties.",
     generator: 'v0.dev'
 }
 

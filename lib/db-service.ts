@@ -134,10 +134,10 @@ const initializeSampleData = () => {
   teamMembers = [
     {
       id: "1",
-      name: "Mehrddin Gadoyev",
+      name: "Mehriddin Gadoyev",
       position: "Founder & CEO",
-      bio: "With over 15 years of experience in the construction industry, Mehrddin founded RainForces in 2007 with a vision to provide high-quality building restoration and rehabilitation services to the Ontario community.",
-      image: "/placeholder.svg?height=400&width=400",
+      bio: "With over 20 years of experience in the construction industry, Mehrddin founded RainForces in 2007 with a vision to provide high-quality building restoration and rehabilitation services to the Ontario community.",
+      image: "/images/mehriddin-gadoyev.jpg",
       email: "mehrddin@rainforces.com",
       phone: "(123) 456-7890",
       socialLinks: {

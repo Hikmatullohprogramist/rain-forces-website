@@ -93,7 +93,8 @@ export const assetImages = {
     restoration: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070",
     waterDamage: "https://images.unsplash.com/photo-1525785967371-87ba44b3e6cf?q=80&w=2073",
     fireDamage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
-    moldRemediation: "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=2072",
+    damageRepair: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2071",
+    moldRemediation: "https://images.unsplash.com/photo-1585211969224-3e992986159d?q=80&w=2071",
   },
 
   // Team member images
@@ -243,7 +244,7 @@ export const assetImages = {
 
   // Miscellaneous images
   misc: {
-    logo: "https://placehold.co/200x80/2563eb/ffffff?text=RainForces&font=montserrat",
+    logo: "/images/rainforces-logo-transparent.png",
     favicon: "https://placehold.co/32x32/2563eb/ffffff?text=RF&font=montserrat",
     ctaBackground: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070",
   },

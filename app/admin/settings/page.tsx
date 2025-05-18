@@ -18,19 +18,19 @@ export default function SettingsPage() {
   const [successMessage, setSuccessMessage] = useState("")
 
   const [generalSettings, setGeneralSettings] = useState({
-    siteName: "Rain Forest",
-    siteDescription: "Building restoration and rehabilitation services",
-    contactEmail: "info@rainforest.com",
+    siteName: "RainForces",
+    siteDescription: "The Restoration Specialists",
+    contactEmail: "info@rainforces.com",
     contactPhone: "(123) 456-7890",
     address: "14-1085 Bellamy Rd N Toronto, Ontario, M1H 3C7",
-    logo: "/logo.png",
+    logo: "/images/rainforces-logo-transparent.png",
     favicon: "/favicon.ico",
   })
 
   const [seoSettings, setSeoSettings] = useState({
-    defaultTitle: "Rain Forest | Building Restoration & Rehabilitation",
+    defaultTitle: "RainForces | The Restoration Specialists",
     defaultDescription:
-      "Rain Forest specializes in building restoration and rehabilitation services for residential and commercial buildings in Ontario since 2007.",
+      "RainForces specializes in building restoration and rehabilitation services for residential and commercial buildings in Ontario since 2007.",
     defaultKeywords: "restoration, rehabilitation, construction, building, toronto, ontario",
     googleAnalyticsId: "",
     enableSitemap: true,

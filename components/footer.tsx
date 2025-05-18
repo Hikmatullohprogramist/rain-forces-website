@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
-import { assetImages } from "@/lib/image-utils"
 import ResponsiveImage from "@/components/ui/responsive-image"
 
 export default function Footer() {
@@ -16,8 +15,14 @@ export default function Footer() {
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="mb-6 h-12 w-40 relative">
-              <ResponsiveImage src={assetImages.misc.logo} alt="RainForces Logo" width={160} height={48} />
+            <div className="mb-6 h-14 w-auto relative bg-white/10 px-2 py-1 rounded-md inline-block">
+              <ResponsiveImage
+                src="/images/rainforces-logo-transparent.png"
+                alt="RainForces - The Restoration Specialists"
+                width={220}
+                height={56}
+                className="object-contain"
+              />
             </div>
             <p className="text-gray-400 mb-6">
               Professional construction and restoration services for residential and commercial properties. Serving

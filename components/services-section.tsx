@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { assetImages } from "@/lib/image-utils"
 import ServiceCard from "@/components/service-card"
-import { Building, Hammer, Wrench, Droplet, Flame, WormIcon as Virus } from "lucide-react"
+import { Building, Hammer, Wrench, Droplet, WormIcon as Virus } from "lucide-react"
 
 export default function ServicesSection() {
   const [hoveredService, setHoveredService] = useState<string | null>(null)
@@ -39,20 +39,13 @@ export default function ServicesSection() {
       image: assetImages.services.restoration,
     },
     {
-      id: "water-damage",
-      title: "Water Damage Restoration",
-      description: "Fast response to water damage from floods, leaks, or storms with complete restoration services.",
+      id: "damage-repair",
+      title: "Water & Fire Damage Repair",
+      description:
+        "Comprehensive restoration services for properties affected by water and fire damage, including cleanup and reconstruction.",
       icon: <Droplet className="h-12 w-12 text-primary" />,
-      link: "/services/water-damage",
-      image: assetImages.services.waterDamage,
-    },
-    {
-      id: "fire-damage",
-      title: "Fire Damage Repair",
-      description: "Comprehensive fire and smoke damage restoration services, from cleanup to reconstruction.",
-      icon: <Flame className="h-12 w-12 text-primary" />,
-      link: "/services/fire-damage",
-      image: assetImages.services.fireDamage,
+      link: "/services/damage-repair",
+      image: assetImages.services.damageRepair,
     },
     {
       id: "mold-remediation",

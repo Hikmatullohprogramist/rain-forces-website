@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { assetImages } from "@/lib/image-utils"
 import ResponsiveImage from "@/components/ui/responsive-image"
 
 export default function Header() {
@@ -42,8 +41,17 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50">
-            <div className="h-12 w-40 relative">
-              <ResponsiveImage src={assetImages.misc.logo} alt="RainForces Logo" width={160} height={48} priority />
+            <div
+              className={`h-14 w-auto relative ${!isScrolled && "bg-white/80 px-2 py-1 rounded-md backdrop-blur-sm"}`}
+            >
+              <ResponsiveImage
+                src="/images/rainforces-logo-transparent.png"
+                alt="RainForces - The Restoration Specialists"
+                width={220}
+                height={56}
+                priority
+                className="object-contain"
+              />
             </div>
           </Link>
 
