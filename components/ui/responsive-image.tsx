@@ -52,6 +52,12 @@ export default function ResponsiveImage({
     if (onLoad) onLoad()
   }
 
+  // Check if the image is from an external source (for CDN optimization)
+  const isExternal = src.startsWith("http") || src.startsWith("//")
+
+  // For external images, we can use the original URL
+  // For local images, we use Next.js Image component with optimization
+
   return (
     <div
       className={cn(
@@ -72,6 +78,7 @@ export default function ResponsiveImage({
         quality={quality}
         onLoad={handleLoad}
         onError={handleError}
+        unoptimized={isExternal} // Don't optimize external images (they're already optimized by their CDN)
         className={cn(
           "transition-opacity duration-300",
           isLoading ? "opacity-0" : "opacity-100",

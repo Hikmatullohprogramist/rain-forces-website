@@ -2,14 +2,17 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { assetImages } from "@/lib/image-utils"
+import ResponsiveImage from "@/components/ui/responsive-image"
 
-const Header = () => {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,108 +23,105 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/#services" },
-    { name: "About", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Testimonials", href: "/#testimonials" },
-    { name: "Contact", href: "/contact" },
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Projects", href: "/projects" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Contact", href: "/contact" },
   ]
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/telegram-cloud-photo-size-2-5269349836656865600-x.jpg-mOZzZST9XMlqAXHuqxoxoXXvt4ww1g.jpeg"
-              alt="RainForces Logo"
-              width={180}
-              height={60}
-              className="h-12 w-auto"
-            />
+          <Link href="/" className="relative z-50">
+            <div className="h-12 w-40 relative">
+              <ResponsiveImage src={assetImages.misc.logo} alt="RainForces Logo" width={160} height={48} priority />
+            </div>
           </Link>
 
-          {/* Emergency Contact */}
-          <div className="hidden lg:flex items-center mr-8">
-            <div className="bg-secondary rounded-full p-2 mr-3">
-              <Phone size={20} className="text-white" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-gray-600">24/7 Emergency Service</p>
-              <a href="tel:1-800-555-0000" className="text-lg font-bold text-primary hover:text-primary-600">
-                1-800-555-0000
-              </a>
-            </div>
-          </div>
-
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
+          <nav className="hidden md:flex items-center space-x-1">
+            {navItems.map((item) => (
               <Link
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isScrolled ? "text-gray-800" : "text-gray-800"
+                key={item.href}
+                href={item.href}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  pathname === item.href
+                    ? "text-primary"
+                    : isScrolled
+                      ? "text-gray-700 hover:text-primary"
+                      : "text-white hover:text-white/80"
                 }`}
               >
-                {link.name}
+                {item.label}
               </Link>
             ))}
-            <Button className="bg-secondary hover:bg-secondary-600 text-white rounded-md">Get a Quote</Button>
+            <Button
+              asChild
+              size="sm"
+              className={`ml-4 ${
+                isScrolled ? "bg-primary hover:bg-primary-600 text-white" : "bg-white text-primary hover:bg-white/90"
+              }`}
+            >
+              <Link href="/contact">Get a Quote</Link>
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {isMenuOpen ? <X size={24} className="text-gray-800" /> : <Menu size={24} className="text-gray-800" />}
-          </button>
+          <div className="flex items-center md:hidden">
+            <a
+              href="tel:1-800-555-0000"
+              className={`mr-4 flex items-center ${isScrolled ? "text-primary" : "text-white"}`}
+            >
+              <Phone className="h-5 w-5" />
+            </a>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`p-2 rounded-md ${isScrolled ? "text-gray-800" : "text-white"}`}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       <AnimatePresence>
-        {isMenuOpen && (
+        {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white shadow-lg"
+            className="md:hidden bg-white absolute top-full left-0 right-0 shadow-lg"
           >
             <div className="container mx-auto px-4 py-4">
-              <nav className="flex flex-col space-y-4">
-                {navLinks.map((link) => (
+              <nav className="flex flex-col space-y-2">
+                {navItems.map((item) => (
                   <Link
-                    key={link.name}
-                    href={link.href}
-                    className="text-gray-800 font-medium hover:text-primary py-2"
-                    onClick={() => setIsMenuOpen(false)}
+                    key={item.href}
+                    href={item.href}
+                    className={`px-4 py-3 rounded-md text-base font-medium ${
+                      pathname === item.href ? "bg-primary/10 text-primary" : "text-gray-700 hover:bg-gray-100"
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {link.name}
+                    {item.label}
                   </Link>
                 ))}
-                <div className="flex items-center py-2">
-                  <div className="bg-secondary rounded-full p-2 mr-3">
-                    <Phone size={20} className="text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-600">24/7 Emergency</p>
-                    <a href="tel:1-800-555-0000" className="text-lg font-bold text-primary">
-                      1-800-555-0000
-                    </a>
-                  </div>
-                </div>
-                <Button className="bg-secondary hover:bg-secondary-600 text-white w-full">Get a Quote</Button>
+                <Button asChild className="mt-2 bg-primary hover:bg-primary-600 text-white">
+                  <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    Get a Quote
+                  </Link>
+                </Button>
               </nav>
             </div>
           </motion.div>
@@ -130,5 +130,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header
