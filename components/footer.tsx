@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin, VoicemailIcon as Fax } from "lucide-react"
 import ResponsiveImage from "@/components/ui/responsive-image"
 
 export default function Footer() {
@@ -69,6 +69,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/testimonials" className="text-gray-400 hover:text-white transition-colors">
+                  Testimonials
+                </Link>
+              </li>
+              <li>
                 <Link href="/gallery" className="text-gray-400 hover:text-white transition-colors">
                   Gallery
                 </Link>
@@ -86,33 +91,31 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-6">Our Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/services/construction" className="text-gray-400 hover:text-white transition-colors">
-                  General Construction
+                <Link href="/services/building-envelope" className="text-gray-400 hover:text-white transition-colors">
+                  Building Envelope
                 </Link>
               </li>
               <li>
-                <Link href="/services/renovation" className="text-gray-400 hover:text-white transition-colors">
-                  Renovation & Remodeling
+                <Link href="/services/balcony-restoration" className="text-gray-400 hover:text-white transition-colors">
+                  Balcony Restoration
                 </Link>
               </li>
               <li>
-                <Link href="/services/restoration" className="text-gray-400 hover:text-white transition-colors">
-                  Building Restoration
+                <Link
+                  href="/services/parking-garage-repairs"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Parking Garage Repairs
                 </Link>
               </li>
               <li>
-                <Link href="/services/water-damage" className="text-gray-400 hover:text-white transition-colors">
-                  Water Damage Restoration
+                <Link href="/services/weatherproofing" className="text-gray-400 hover:text-white transition-colors">
+                  Weatherproofing
                 </Link>
               </li>
               <li>
-                <Link href="/services/fire-damage" className="text-gray-400 hover:text-white transition-colors">
-                  Fire Damage Repair
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/mold-remediation" className="text-gray-400 hover:text-white transition-colors">
-                  Mold Remediation
+                <Link href="/services/emergency-services" className="text-gray-400 hover:text-white transition-colors">
+                  Emergency Services
                 </Link>
               </li>
             </ul>
@@ -125,34 +128,44 @@ export default function Footer() {
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-white font-medium">Call Us</p>
-                  <a href="tel:1-800-555-0000" className="text-gray-400 hover:text-white transition-colors">
-                    1-800-555-0000
+                  <p className="text-white font-medium">Phone</p>
+                  <a href="tel:647-342-8600" className="text-gray-400 hover:text-white transition-colors">
+                    (647) 342-8600
                   </a>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <Fax className="h-5 w-5 mr-3 text-primary flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-white font-medium">Fax</p>
+                  <span className="text-gray-400">(416) 751-0433</span>
                 </div>
               </li>
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mr-3 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-white font-medium">Email Us</p>
-                  <a href="mailto:info@rainforces.com" className="text-gray-400 hover:text-white transition-colors">
-                    info@rainforces.com
+                  <p className="text-white font-medium">Email</p>
+                  <a href="mailto:info@rainforces.ca" className="text-gray-400 hover:text-white transition-colors">
+                    info@rainforces.ca
                   </a>
                 </div>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-white font-medium">Visit Us</p>
-                  <address className="text-gray-400 not-italic">123 Construction Ave, Toronto, ON M5V 2K4</address>
+                  <p className="text-white font-medium">Address</p>
+                  <address className="text-gray-400 not-italic">
+                    14-1085 Bellamy Rd N<br />
+                    Toronto, Ontario, M1H 3C7
+                  </address>
                 </div>
               </li>
               <li className="flex items-start">
                 <Clock className="h-5 w-5 mr-3 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-white font-medium">Hours</p>
-                  <p className="text-gray-400">Mon-Fri: 8AM-6PM</p>
-                  <p className="text-gray-400">24/7 Emergency Service</p>
+                  <p className="text-white font-medium">Office Hours</p>
+                  <p className="text-gray-400">Mon-Fri: 8:00AM - 5:00PM</p>
+                  <p className="text-gray-400">Saturday: 8:00AM - 12:00PM</p>
                 </div>
               </li>
             </ul>

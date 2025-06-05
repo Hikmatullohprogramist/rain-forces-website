@@ -51,7 +51,7 @@ export default function HeroSection() {
           className="max-w-3xl"
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Professional Construction & Restoration Services You Can Trust
+            General Contracting & Professional Construction
           </h1>
           <p className="text-xl text-white/90 mb-8">
             Delivering comprehensive construction and restoration solutions including general contracting, building

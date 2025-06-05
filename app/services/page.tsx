@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/layout/breadcrumbs"
 import CTASection from "@/components/layout/cta-section"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Droplet, Sprout, Wind, Shield, Home, CheckCircle2 } from "lucide-react"
+import { Building, Shield, Car, Droplet, AlertTriangle, CheckCircle2 } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
@@ -14,89 +14,92 @@ import Image from "next/image"
 export default function ServicesPage() {
   const services = [
     {
-      icon: <Droplet className="h-12 w-12 text-primary" />,
-      title: "Water & Fire Damage Repair",
+      icon: <Building className="h-12 w-12 text-primary" />,
+      title: "Building Envelope",
       description:
-        "Comprehensive restoration services for properties affected by water and fire damage, from emergency response to complete reconstruction.",
+        "Also known as the building shell, fabric or enclosure – is the boundary between the conditioned interior of a building and the outdoors. Components of the building envelope include: external walls, floors, roofs, ceilings, windows and doors.",
       features: [
-        "24/7 Emergency Response",
-        "Water Extraction & Removal",
-        "Fire & Smoke Damage Cleanup",
-        "Structural Drying",
-        "Odor Elimination",
-        "Complete Reconstruction",
+        "External Wall Systems",
+        "Roof & Ceiling Solutions",
+        "Window & Door Installation",
+        "Thermal Insulation",
+        "Moisture Barrier Systems",
+        "Energy Efficiency Optimization",
       ],
       image: "/placeholder.svg?height=600&width=800",
-      link: "/services/damage-repair",
-    },
-    {
-      icon: <Sprout className="h-12 w-12 text-primary" />,
-      title: "Mold Remediation",
-      description:
-        "Professional mold inspection, testing, and remediation to ensure your property is safe and healthy.",
-      features: [
-        "Mold Inspection & Testing",
-        "Containment & Air Filtration",
-        "Mold Removal & Treatment",
-        "Structural Drying",
-        "Preventative Treatments",
-        "Post-Remediation Verification",
-      ],
-      image: "/placeholder.svg?height=600&width=800",
-      link: "/services/mold-remediation",
-    },
-    {
-      icon: <Wind className="h-12 w-12 text-secondary" />,
-      title: "Storm Damage Repair",
-      description: "Comprehensive storm damage restoration for roofs, siding, windows, and structural repairs.",
-      features: [
-        "Emergency Board-Up",
-        "Roof Tarping & Repair",
-        "Water Damage Mitigation",
-        "Debris Removal",
-        "Structural Repairs",
-        "Complete Restoration",
-      ],
-      image: "/placeholder.svg?height=600&width=800",
-      link: "/services/storm-damage",
+      link: "/services/building-envelope",
     },
     {
       icon: <Shield className="h-12 w-12 text-primary" />,
-      title: "Biohazard Cleanup",
-      description: "Safe and discreet biohazard cleanup services with proper disposal and thorough sanitization.",
+      title: "Balcony Restoration",
+      description:
+        "With an understanding of the budgetary and logistical demands of busy settings and occupied spaces, we have helped many building owners and managers restore the structural integrity of their balconies by offering consistent good work for a fair price.",
       features: [
-        "Biohazard Assessment",
-        "Safe Material Removal",
-        "Thorough Decontamination",
-        "Odor Elimination",
-        "Proper Waste Disposal",
-        "Structural Restoration",
+        "Structural Assessment",
+        "Concrete Repair & Restoration",
+        "Waterproofing Systems",
+        "Railing & Safety Features",
+        "Drainage Solutions",
+        "Aesthetic Improvements",
       ],
       image: "/placeholder.svg?height=600&width=800",
-      link: "/services/biohazard-cleanup",
+      link: "/services/balcony-restoration",
     },
     {
-      icon: <Home className="h-12 w-12 text-secondary" />,
-      title: "Reconstruction Services",
-      description: "Full-service reconstruction to restore your property to its pre-loss condition or better.",
+      icon: <Car className="h-12 w-12 text-secondary" />,
+      title: "Parking Garage Repairs",
+      description:
+        "Putting off parking garage upkeep can cause minor cracks to escalate into major hazards. Garages and parking decks deteriorate more rapidly than other built structures. Addressing parking garage deterioration at the first sign of trouble allows for proactive maintenance and repair that minimize disruption and maximize efficiency.",
       features: [
-        "Structural Repairs",
-        "Carpentry & Framing",
-        "Drywall Installation",
-        "Flooring Replacement",
-        "Painting & Finishing",
-        "Complete Remodeling",
+        "Crack Repair & Sealing",
+        "Concrete Restoration",
+        "Waterproofing Systems",
+        "Traffic Deck Coatings",
+        "Structural Reinforcement",
+        "Preventive Maintenance",
       ],
       image: "/placeholder.svg?height=600&width=800",
-      link: "/services/reconstruction",
+      link: "/services/parking-garage-repairs",
+    },
+    {
+      icon: <Droplet className="h-12 w-12 text-primary" />,
+      title: "Weatherproofing",
+      description:
+        "Bad apples don't go good. And so does water infiltration. The longer a water leak is allowed to progress unchecked, the more extensive the underlying deterioration can become. Stopping a minor leak is far easier than rehabilitating the damage from a major one. At rainForces, our waterproofing experience is both diverse and specialized, as we apply focused expertise to a range of settings and situations to correct water infiltration conditions at homes, businesses, schools, libraries, and other facilities.",
+      features: [
+        "Water Infiltration Assessment",
+        "Sealant & Caulking Services",
+        "Membrane Installation",
+        "Drainage System Design",
+        "Leak Detection & Repair",
+        "Preventive Waterproofing",
+      ],
+      image: "/placeholder.svg?height=600&width=800",
+      link: "/services/weatherproofing",
+    },
+    {
+      icon: <AlertTriangle className="h-12 w-12 text-secondary" />,
+      title: "Emergency Services",
+      description:
+        "From restoring deteriorated balconies to resolving waterproofing deficiencies, we know the issues, and we know the solutions. With an understanding of the budgetary and logistical demands of busy settings and occupied spaces, we have helped many building owners and managers restore their property by offering consistent good work for a fair price.",
+      features: [
+        "24/7 Emergency Response",
+        "Rapid Assessment & Mitigation",
+        "Temporary Protective Measures",
+        "Urgent Repair Services",
+        "Safety Compliance",
+        "Insurance Coordination",
+      ],
+      image: "/placeholder.svg?height=600&width=800",
+      link: "/services/emergency-services",
     },
   ]
 
   return (
     <PageLayout>
       <PageBanner
-        title="Our Restoration Services"
-        subtitle="Comprehensive restoration solutions for water damage, fire damage, mold, and more."
+        title="Our Construction Services"
+        subtitle="General contracting & Professional construction services for building envelope, restoration, and maintenance solutions."
         backgroundImage="/placeholder.svg?height=600&width=1200"
       />
 
@@ -112,10 +115,10 @@ export default function ServicesPage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Comprehensive Restoration Solutions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Comprehensive Construction Solutions</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We provide a full range of restoration services to help you recover from water damage, fire damage, mold,
-              and more. Our expert team is ready to restore your property quickly and efficiently.
+              We provide specialized construction and restoration services focused on building envelope systems,
+              structural integrity, and long-term maintenance solutions for commercial and residential properties.
             </p>
           </motion.div>
 
@@ -180,10 +183,10 @@ export default function ServicesPage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Restoration Process</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Construction Process</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We follow a comprehensive, step-by-step process to ensure efficient and effective restoration of your
-              property.
+              We follow a comprehensive, step-by-step process to ensure efficient and effective construction and
+              restoration of your property.
             </p>
           </motion.div>
 
@@ -192,22 +195,24 @@ export default function ServicesPage() {
               {
                 step: "1",
                 title: "Assessment",
-                description: "We conduct a thorough inspection to assess the damage and develop a restoration plan.",
+                description:
+                  "We conduct a thorough inspection to assess the condition and develop a construction plan.",
               },
               {
                 step: "2",
-                title: "Mitigation",
-                description: "We take immediate action to prevent further damage and begin the restoration process.",
+                title: "Planning",
+                description: "We create detailed plans and specifications to ensure project success and compliance.",
               },
               {
                 step: "3",
-                title: "Restoration",
-                description: "Our team works efficiently to restore your property to its pre-damage condition.",
+                title: "Construction",
+                description: "Our team works efficiently to complete your project to the highest standards of quality.",
               },
               {
                 step: "4",
                 title: "Final Inspection",
-                description: "We conduct a final inspection to ensure all work meets our high standards of quality.",
+                description:
+                  "We conduct a final inspection to ensure all work meets our high standards and your expectations.",
               },
             ].map((step, index) => (
               <motion.div
@@ -233,8 +238,8 @@ export default function ServicesPage() {
       </section>
 
       <CTASection
-        title="Need Emergency Restoration Services?"
-        description="Our team is available 24/7 to respond to your restoration emergency."
+        title="Need Professional Construction Services?"
+        description="Our team is ready to help with your building envelope, restoration, and maintenance needs."
         primaryButtonText="Call Now: 1-800-555-0000"
         primaryButtonLink="tel:1-800-555-0000"
         secondaryButtonText="Get a Free Quote"

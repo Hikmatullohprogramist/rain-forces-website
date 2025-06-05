@@ -6,54 +6,55 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { assetImages } from "@/lib/image-utils"
 import ServiceCard from "@/components/service-card"
-import { Building, Hammer, Wrench, Droplet, WormIcon as Virus } from "lucide-react"
+import { Building, Shield, Car, Droplet, AlertTriangle } from "lucide-react"
 
 export default function ServicesSection() {
   const [hoveredService, setHoveredService] = useState<string | null>(null)
 
   const services = [
     {
-      id: "construction",
-      title: "General Construction",
+      id: "building-envelope",
+      title: "Building Envelope",
       description:
-        "Full-service construction for new buildings and major renovations for commercial and residential clients.",
+        "Also known as the building shell, fabric or enclosure – is the boundary between the conditioned interior of a building and the outdoors. Components include external walls, floors, roofs, ceilings, windows and doors.",
       icon: <Building className="h-12 w-12 text-primary" />,
-      link: "/services/construction",
+      link: "/services/building-envelope",
       image: assetImages.services.construction,
     },
     {
-      id: "renovation",
-      title: "Renovation & Remodeling",
-      description: "Transform your space with our expert renovation and remodeling services for homes and businesses.",
-      icon: <Hammer className="h-12 w-12 text-primary" />,
-      link: "/services/renovation",
-      image: assetImages.services.renovation,
-    },
-    {
-      id: "restoration",
-      title: "Building Restoration",
+      id: "balcony-restoration",
+      title: "Balcony Restoration",
       description:
-        "Specialized restoration services for historic and aging buildings, preserving their character and integrity.",
-      icon: <Wrench className="h-12 w-12 text-primary" />,
-      link: "/services/restoration",
+        "With an understanding of the budgetary and logistical demands of busy settings and occupied spaces, we help building owners and managers restore the structural integrity of their balconies by offering consistent good work for a fair price.",
+      icon: <Shield className="h-12 w-12 text-primary" />,
+      link: "/services/balcony-restoration",
       image: assetImages.services.restoration,
     },
     {
-      id: "damage-repair",
-      title: "Water & Fire Damage Repair",
+      id: "parking-garage-repairs",
+      title: "Parking Garage Repairs",
       description:
-        "Comprehensive restoration services for properties affected by water and fire damage, including cleanup and reconstruction.",
+        "Putting off parking garage upkeep can cause minor cracks to escalate into major hazards. Garages deteriorate more rapidly than other structures. Addressing deterioration at the first sign allows for proactive maintenance that minimizes disruption.",
+      icon: <Car className="h-12 w-12 text-primary" />,
+      link: "/services/parking-garage-repairs",
+      image: assetImages.services.renovation,
+    },
+    {
+      id: "weatherproofing",
+      title: "Weatherproofing",
+      description:
+        "The longer a water leak is allowed to progress unchecked, the more extensive the underlying deterioration becomes. Our waterproofing experience is diverse and specialized, applying focused expertise to correct water infiltration conditions.",
       icon: <Droplet className="h-12 w-12 text-primary" />,
-      link: "/services/damage-repair",
+      link: "/services/weatherproofing",
       image: assetImages.services.damageRepair,
     },
     {
-      id: "mold-remediation",
-      title: "Mold Remediation",
+      id: "emergency-services",
+      title: "Emergency Services",
       description:
-        "Professional mold inspection, testing, and remediation to ensure your property is safe and healthy.",
-      icon: <Virus className="h-12 w-12 text-primary" />,
-      link: "/services/mold-remediation",
+        "From restoring deteriorated balconies to resolving waterproofing deficiencies, we know the issues and solutions. We help building owners and managers restore their property by offering consistent good work for a fair price.",
+      icon: <AlertTriangle className="h-12 w-12 text-primary" />,
+      link: "/services/emergency-services",
       image: assetImages.services.moldRemediation,
     },
   ]
@@ -71,8 +72,8 @@ export default function ServicesSection() {
           <span className="text-primary font-semibold">OUR EXPERTISE</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Our Services</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From new construction to restoration and disaster recovery, we provide comprehensive solutions for all your
-            property needs.
+            General contracting & Professional construction services for building envelope, restoration, and maintenance
+            solutions.
           </p>
         </motion.div>
 

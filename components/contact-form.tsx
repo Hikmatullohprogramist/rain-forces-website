@@ -83,8 +83,8 @@ const ContactForm = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Get a Free Quote</h2>
             <p className="text-lg text-gray-600 mb-8">
-              Fill out the form to request a free quote for our restoration services. Our team will get back to you
-              within 24 hours to discuss your needs.
+              Fill out the form to request a free quote for our construction and restoration services. Our team will get
+              back to you within 24 hours to discuss your needs.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -119,9 +119,9 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-1 text-primary-800">Emergency Service</h3>
-                  <p className="text-primary-700 mb-2">Need immediate assistance? Call our 24/7 hotline:</p>
-                  <a href="tel:1-800-555-0000" className="text-2xl font-bold text-primary hover:text-primary-600">
-                    1-800-555-0000
+                  <p className="text-primary-700 mb-2">Need immediate assistance? Call our emergency hotline:</p>
+                  <a href="tel:647-342-8600" className="text-2xl font-bold text-primary hover:text-primary-600">
+                    (647) 342-8600
                   </a>
                 </div>
               </div>
@@ -148,7 +148,7 @@ const ContactForm = () => {
                       </div>
                       <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
                       <p className="text-gray-600 mb-6">
-                        Your quote request has been submitted successfully. One of our restoration specialists will
+                        Your quote request has been submitted successfully. One of our construction specialists will
                         contact you shortly.
                       </p>
                       <Button
@@ -195,7 +195,7 @@ const ContactForm = () => {
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            placeholder="(123) 456-7890"
+                            placeholder="(647) 123-4567"
                             required
                           />
                         </div>
@@ -213,12 +213,11 @@ const ContactForm = () => {
                             <option value="" disabled>
                               Select a service
                             </option>
-                            <option value="water">Water Damage Restoration</option>
-                            <option value="fire">Fire Damage Restoration</option>
-                            <option value="mold">Mold Remediation</option>
-                            <option value="storm">Storm Damage Repair</option>
-                            <option value="biohazard">Biohazard Cleanup</option>
-                            <option value="reconstruction">Reconstruction Services</option>
+                            <option value="building-envelope">Building Envelope</option>
+                            <option value="balcony-restoration">Balcony Restoration</option>
+                            <option value="parking-garage">Parking Garage Repairs</option>
+                            <option value="weatherproofing">Weatherproofing</option>
+                            <option value="emergency">Emergency Services</option>
                             <option value="other">Other</option>
                           </select>
                         </div>
@@ -236,13 +235,13 @@ const ContactForm = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="message">Tell Us About Your Situation</Label>
+                        <Label htmlFor="message">Tell Us About Your Project</Label>
                         <Textarea
                           id="message"
                           name="message"
                           value={formData.message}
                           onChange={handleChange}
-                          placeholder="Please provide details about the damage or service needed..."
+                          placeholder="Please provide details about your construction or restoration needs..."
                           rows={4}
                         />
                       </div>

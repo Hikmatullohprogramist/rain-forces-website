@@ -138,8 +138,8 @@ const initializeSampleData = () => {
       position: "Founder & CEO",
       bio: "With over 20 years of experience in the construction industry, Mehrddin founded RainForces in 2007 with a vision to provide high-quality building restoration and rehabilitation services to the Ontario community.",
       image: "/images/mehriddin-gadoyev.jpg",
-      email: "mehrddin@rainforces.com",
-      phone: "(123) 456-7890",
+      email: "mehrddin@rainforces.ca",
+      phone: "(647) 342-8600",
       socialLinks: {
         linkedin: "https://linkedin.com/in/mehrddin-gadoyev",
       },
@@ -151,8 +151,8 @@ const initializeSampleData = () => {
       position: "Project Manager",
       bio: "Jane has been with RainForces for over 8 years and has successfully managed numerous large-scale restoration projects. Her attention to detail and commitment to client satisfaction have been key to our success.",
       image: "/placeholder.svg?height=400&width=400",
-      email: "jane@rainforces.com",
-      phone: "(123) 456-7891",
+      email: "jane@rainforces.ca",
+      phone: "(647) 342-8600",
       socialLinks: {
         linkedin: "https://linkedin.com/in/jane-smith",
       },
@@ -161,15 +161,15 @@ const initializeSampleData = () => {
   ]
 
   companyInfo = {
-    name: "Rain Forest",
-    slogan: "Building restoration and rehabilitation services",
+    name: "RainForces",
+    slogan: "The Restoration Specialists",
     description:
-      "Rain Forest specializes in building restoration and rehabilitation services for residential and commercial buildings in Ontario since 2007.",
+      "RainForces specializes in general contracting and professional construction services for residential and commercial buildings in Ontario since 2007.",
     foundedYear: 2007,
     mission:
-      "Our mission is to provide high-quality building restoration and rehabilitation services that exceed our clients' expectations while maintaining the highest standards of professionalism, integrity, and craftsmanship.",
+      "Our mission is to provide high-quality construction and restoration services that exceed our clients' expectations while maintaining the highest standards of professionalism, integrity, and craftsmanship.",
     vision:
-      "To be the leading building restoration and rehabilitation company in Ontario, known for our exceptional quality, reliability, and customer service.",
+      "To be the leading construction and restoration company in Ontario, known for our exceptional quality, reliability, and customer service.",
     values: [
       {
         title: "Quality",
@@ -193,9 +193,10 @@ const initializeSampleData = () => {
       },
     ],
     contactInfo: {
-      email: "info@rainforces.com",
-      phone: "(123) 456-7890",
-      address: "14-1085 Bellamy Rd N Toronto, Ontario, M1H 3C7",
+      email: "info@rainforces.ca",
+      phone: "(647) 342-8600",
+      fax: "(416) 751-0433",
+      address: "14-1085 Bellamy Rd N, Toronto, Ontario, M1H 3C7",
       mapCoordinates: {
         lat: 43.7615,
         lng: -79.2515,

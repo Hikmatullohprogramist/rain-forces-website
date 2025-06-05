@@ -18,9 +18,9 @@ export const assetImages = {
     commercial: [
       {
         id: "comm-1",
-        src: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2071",
-        alt: "Commercial Office Renovation",
-        title: "Commercial Office Renovation",
+        src: "/images/projects/stucco-work.jpg",
+        alt: "Building Envelope & Stucco Preparation",
+        title: "Building Envelope & Stucco Preparation",
         category: "commercial",
       },
       {
@@ -41,9 +41,9 @@ export const assetImages = {
     residential: [
       {
         id: "res-1",
-        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070",
-        alt: "Luxury Home Construction",
-        title: "Luxury Home Construction",
+        src: "/images/projects/new-stone-sill.jpg",
+        alt: "New Stone Window Sills Installation",
+        title: "New Stone Window Sills Installation",
         category: "residential",
       },
       {
@@ -64,23 +64,23 @@ export const assetImages = {
     restoration: [
       {
         id: "rest-1",
-        src: "https://images.unsplash.com/photo-1584463623578-37726932b211?q=80&w=2033",
-        alt: "Water Damage Restoration",
-        title: "Water Damage Restoration",
+        src: "/images/projects/after-1.jpg",
+        alt: "Masonry Restoration",
+        title: "Masonry Restoration",
         category: "restoration",
       },
       {
         id: "rest-2",
-        src: "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=2072",
-        alt: "Fire Damage Repair",
-        title: "Fire Damage Repair",
+        src: "/images/projects/after-2.jpg",
+        alt: "Building Envelope Repair",
+        title: "Building Envelope Repair",
         category: "restoration",
       },
       {
         id: "rest-3",
-        src: "https://images.unsplash.com/photo-1585211969224-3e992986159d?q=80&w=2071",
-        alt: "Mold Remediation",
-        title: "Mold Remediation",
+        src: "/images/projects/after-3.jpg",
+        alt: "Brick Wall Reconstruction",
+        title: "Brick Wall Reconstruction",
         category: "restoration",
       },
     ],
@@ -122,28 +122,29 @@ export const assetImages = {
     },
   ],
 
-  // Before/After project images
+  // Before/After project images - Real RainForces projects
   beforeAfter: [
     {
       id: "ba-1",
-      before: "https://images.unsplash.com/photo-1581658545414-8a593d2c7abb?q=80&w=2070",
-      after: "https://images.unsplash.com/photo-1600607687644-c7f34bc91088?q=80&w=2070",
-      title: "Kitchen Renovation",
-      description: "Complete kitchen renovation with modern appliances and custom cabinetry",
+      before: "/images/projects/before-1.jpg",
+      after: "/images/projects/after-1.jpg",
+      title: "Masonry Restoration & Cleanup",
+      description: "Complete restoration of deteriorated brick masonry with professional cleanup and mortar repair",
     },
     {
       id: "ba-2",
-      before: "https://images.unsplash.com/photo-1525785967371-87ba44b3e6cf?q=80&w=2073",
-      after: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070",
-      title: "Water Damage Restoration",
-      description: "Basement restoration after severe flooding",
+      before: "/images/projects/before-2.jpg",
+      after: "/images/projects/after-2.jpg",
+      title: "Building Envelope Restoration",
+      description: "Structural repair of damaged brick wall with complete restoration to original integrity",
     },
     {
       id: "ba-3",
-      before: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069",
-      after: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069",
-      title: "Commercial Office Remodel",
-      description: "Modern office space transformation",
+      before: "/images/projects/before-3.jpg",
+      after: "/images/projects/after-3.jpg",
+      title: "Brick Wall Reconstruction",
+      description:
+        "Professional reconstruction of damaged brick sections with matching materials and expert craftsmanship",
     },
   ],
 
@@ -166,36 +167,36 @@ export const assetImages = {
     },
   ],
 
-  // Gallery images
+  // Gallery images - Updated with new real project images
   gallery: [
     {
       id: "gal-1",
-      src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071",
-      alt: "Modern architecture",
-      category: "commercial",
+      src: "/images/projects/after-2.jpg",
+      alt: "Building envelope restoration",
+      category: "restoration",
     },
     {
       id: "gal-2",
-      src: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?q=80&w=2070",
-      alt: "Kitchen renovation",
-      category: "residential",
+      src: "/images/projects/after-1.jpg",
+      alt: "Masonry restoration",
+      category: "restoration",
     },
     {
       id: "gal-3",
-      src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070",
-      alt: "Luxury home exterior",
-      category: "residential",
+      src: "/images/projects/after-3.jpg",
+      alt: "Brick wall reconstruction",
+      category: "restoration",
     },
     {
       id: "gal-4",
-      src: "https://images.unsplash.com/photo-1574359411659-15573a27fd0c?q=80&w=2070",
-      alt: "Home renovation",
+      src: "/images/projects/new-stone-sill.jpg",
+      alt: "New stone window sills installation",
       category: "residential",
     },
     {
       id: "gal-5",
-      src: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2071",
-      alt: "Office building",
+      src: "/images/projects/stucco-work.jpg",
+      alt: "Building envelope & stucco preparation",
       category: "commercial",
     },
     {
