@@ -4,7 +4,6 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { assetImages } from "@/lib/image-utils"
 import ServiceCard from "@/components/service-card"
 import { Building, Shield, Car, Droplet, AlertTriangle } from "lucide-react"
 
@@ -19,7 +18,7 @@ export default function ServicesSection() {
         "Also known as the building shell, fabric or enclosure – is the boundary between the conditioned interior of a building and the outdoors. Components include external walls, floors, roofs, ceilings, windows and doors.",
       icon: <Building className="h-12 w-12 text-primary" />,
       link: "/services/building-envelope",
-      image: assetImages.services.construction,
+      image: "/images/projects/building-envelope-work.jpg", // Real project image
     },
     {
       id: "balcony-restoration",
@@ -28,7 +27,7 @@ export default function ServicesSection() {
         "With an understanding of the budgetary and logistical demands of busy settings and occupied spaces, we help building owners and managers restore the structural integrity of their balconies by offering consistent good work for a fair price.",
       icon: <Shield className="h-12 w-12 text-primary" />,
       link: "/services/balcony-restoration",
-      image: assetImages.services.restoration,
+      image: "/images/projects/balcony-work-ladder.jpg", // Real balcony work image
     },
     {
       id: "parking-garage-repairs",
@@ -37,7 +36,7 @@ export default function ServicesSection() {
         "Putting off parking garage upkeep can cause minor cracks to escalate into major hazards. Garages deteriorate more rapidly than other structures. Addressing deterioration at the first sign allows for proactive maintenance that minimizes disruption.",
       icon: <Car className="h-12 w-12 text-primary" />,
       link: "/services/parking-garage-repairs",
-      image: assetImages.services.renovation,
+      image: "/images/projects/brick-building-garage.jpg", // Real garage project image
     },
     {
       id: "weatherproofing",
@@ -46,7 +45,7 @@ export default function ServicesSection() {
         "The longer a water leak is allowed to progress unchecked, the more extensive the underlying deterioration becomes. Our waterproofing experience is diverse and specialized, applying focused expertise to correct water infiltration conditions.",
       icon: <Droplet className="h-12 w-12 text-primary" />,
       link: "/services/weatherproofing",
-      image: assetImages.services.damageRepair,
+      image: "/images/projects/brick-masonry-detail.jpg", // Real masonry/weatherproofing work
     },
     {
       id: "emergency-services",
@@ -55,7 +54,7 @@ export default function ServicesSection() {
         "From restoring deteriorated balconies to resolving waterproofing deficiencies, we know the issues and solutions. We help building owners and managers restore their property by offering consistent good work for a fair price.",
       icon: <AlertTriangle className="h-12 w-12 text-primary" />,
       link: "/services/emergency-services",
-      image: assetImages.services.moldRemediation,
+      image: "/images/projects/construction-site-cityview.jpg", // Real emergency/urgent work image
     },
   ]
 
