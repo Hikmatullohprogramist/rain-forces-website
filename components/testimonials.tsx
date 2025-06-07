@@ -4,42 +4,34 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import ResponsiveImage from "@/components/ui/responsive-image"
-import { getTestimonialImages } from "@/lib/image-utils"
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
   const [autoplay, setAutoplay] = useState(true)
 
-  const testimonialImages = getTestimonialImages()
-
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      position: "Homeowner",
-      image: testimonialImages[0]?.src || "/placeholder.svg",
-      quote:
-        "RainForces did an amazing job renovating our home after water damage. Their team was professional, efficient, and the quality of work exceeded our expectations. I highly recommend their services!",
+      name: "David Gale",
+      position: "Skywater Property Managements Inc.",
+      quote: "RainForces team performed the work as per the schedule and in budget.",
       rating: 5,
     },
     {
       id: 2,
-      name: "Michael Chen",
-      position: "Business Owner",
-      image: testimonialImages[1]?.src || "/placeholder.svg",
+      name: "Dust Himdust",
+      position: "Crombie Park Building Management",
       quote:
-        "After a fire damaged our restaurant, RainForces restored it better than before. Their attention to detail and commitment to quality is unmatched. They completed the project on time and within budget.",
+        "RainForces are very professional guys. The work was carried out in a professional and organized way, without any single complaint from residents. The project manager: Faridun was very knowledgeable and straightforward guy.",
       rating: 5,
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
-      position: "Property Manager",
-      image: testimonialImages[2]?.src || "/placeholder.svg",
+      name: "Alex Hrastov",
+      position: "Project Manager",
       quote:
-        "We've worked with RainForces on multiple commercial renovation projects, and they consistently deliver exceptional results. Their team is knowledgeable, responsive, and truly cares about their clients.",
+        "Working with RainForces has been exceptional. Their attention to detail, quality craftsmanship, and ability to deliver projects on time consistently exceeds expectations. The team's professionalism and expertise make them our go-to contractor for complex restoration and construction projects.",
       rating: 5,
     },
   ]
@@ -62,7 +54,7 @@ export default function Testimonials() {
     const interval = setInterval(() => {
       setDirection(1)
       setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1))
-    }, 5000)
+    }, 6000)
 
     return () => clearInterval(interval)
   }, [autoplay, testimonials.length])
@@ -101,7 +93,7 @@ export default function Testimonials() {
         </motion.div>
 
         <div className="max-w-4xl mx-auto relative">
-          <div className="relative bg-gray-50 rounded-xl p-8 md:p-12 shadow-lg overflow-hidden">
+          <div className="relative bg-gray-50 rounded-xl p-8 md:p-12 shadow-lg overflow-hidden min-h-[300px]">
             <div className="absolute top-0 right-0 w-32 h-32 text-primary/10 transform translate-x-8 -translate-y-8">
               <Quote size={128} />
             </div>
@@ -115,25 +107,16 @@ export default function Testimonials() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="flex flex-col md:flex-row items-center gap-8"
+                className="flex flex-col justify-center items-center text-center h-full"
               >
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0 border-4 border-white shadow-md">
-                  <ResponsiveImage
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].name}
-                    width={128}
-                    height={128}
-                    className="rounded-full"
-                  />
-                </div>
-                <div>
-                  <p className="text-lg md:text-xl text-gray-700 italic mb-6 relative z-10">
+                <div className="max-w-3xl">
+                  <p className="text-lg md:text-xl text-gray-700 italic mb-8 relative z-10 leading-relaxed">
                     "{testimonials[currentIndex].quote}"
                   </p>
                   <div>
-                    <h4 className="text-xl font-bold">{testimonials[currentIndex].name}</h4>
-                    <p className="text-primary">{testimonials[currentIndex].position}</p>
-                    <div className="flex mt-2">
+                    <h4 className="text-xl font-bold mb-1">{testimonials[currentIndex].name}</h4>
+                    <p className="text-primary mb-4">{testimonials[currentIndex].position}</p>
+                    <div className="flex justify-center">
                       {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                         <svg
                           key={i}
