@@ -28,7 +28,6 @@ export default function ServicesPage() {
       ],
       image: "/images/projects/building-envelope-work.jpg",
       link: "/services/building-envelope",
-      price: "Starting from $5,000",
     },
     {
       icon: <Shield className="h-12 w-12 text-primary" />,
@@ -45,7 +44,6 @@ export default function ServicesPage() {
       ],
       image: "/images/projects/balcony-work-ladder.jpg",
       link: "/services/balcony-restoration",
-      price: "Starting from $3,500",
     },
     {
       icon: <Car className="h-12 w-12 text-secondary" />,
@@ -62,7 +60,6 @@ export default function ServicesPage() {
       ],
       image: "/images/projects/brick-building-garage.jpg",
       link: "/services/parking-garage-repairs",
-      price: "Starting from $4,000",
     },
     {
       icon: <Droplet className="h-12 w-12 text-primary" />,
@@ -79,7 +76,6 @@ export default function ServicesPage() {
       ],
       image: "/images/projects/brick-masonry-detail.jpg",
       link: "/services/weatherproofing",
-      price: "Starting from $2,500",
     },
     {
       icon: <AlertTriangle className="h-12 w-12 text-secondary" />,
@@ -96,7 +92,6 @@ export default function ServicesPage() {
       ],
       image: "/images/projects/construction-site-cityview.jpg",
       link: "/services/emergency-services",
-      price: "Call for Quote",
     },
     {
       icon: <Building className="h-12 w-12 text-primary" />,
@@ -114,7 +109,6 @@ export default function ServicesPage() {
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/telegram-cloud-photo-size-2-5341324138394023501-y.jpg-AP95tJodpLehEqtzwcIYYjCbEU4nD6.jpeg",
       link: "/services/foundation-work",
-      price: "Starting from $8,000",
     },
   ]
 
@@ -170,7 +164,6 @@ export default function ServicesPage() {
                     </div>
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-xl font-bold text-white mb-1">{service.title}</h3>
-                      <p className="text-primary font-semibold">{service.price}</p>
                     </div>
                   </div>
 
