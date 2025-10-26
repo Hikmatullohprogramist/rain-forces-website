@@ -8,7 +8,7 @@ export const metadata = {
   title: "RainForces - General conducting & Professional construction",
   description:
     "Professional restoration, building rehabilitation, and specialized construction services for residential and commercial properties.",
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
