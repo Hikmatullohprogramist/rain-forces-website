@@ -116,7 +116,7 @@ export default function ServicesPage() {
     <PageLayout>
       <PageBanner
         title="Our Construction Services"
-        subtitle="General contracting & Professional construction services for building envelope, restoration, and maintenance solutions."
+        subtitle="General Contractor services for building envelope, restoration, and maintenance solutions."
         backgroundImage="/images/projects/multi-story-scaffolding.jpg"
       />
 

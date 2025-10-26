@@ -50,9 +50,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            General Contractor &amp; Professional construction
-          </h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">General Contractor</h1>
           <p className="text-xl text-white/90 mb-8">
             Delivering comprehensive construction and restoration solutions including general contracting, building
             rehabilitation, and specialized disaster recovery services for residential and commercial properties.
